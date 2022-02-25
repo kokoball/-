@@ -11,7 +11,6 @@ interface LinkBodyRowProps {
 const LinkBodyRow = ({ data }: LinkBodyRowProps) => {
   const expiresDate = getExpiresDate(data.expires_at);
   const fileSize = getSize(data.size);
-  const xx = 1100000;
   return (
     <>
       <S.TableRow>
@@ -53,7 +52,7 @@ const LinkBodyRow = ({ data }: LinkBodyRowProps) => {
           <span>받은사람</span>
           <S.LinkReceivers>
             {data.sent
-              ? data.sent.emails?.map((email, i) => <Avatar key={`email-${i}`} text={email} />)
+              ? data.sent.emails?.map((email) => <Avatar key={email} text={email} />)
               : null}
           </S.LinkReceivers>
         </S.TableCell>
