@@ -2,6 +2,7 @@ import React from 'react';
 import Avatar from 'components/base/Abatar';
 import { IFilesTypes } from 'types';
 import { clipboardCopy, getExpiresDate, getSize } from 'utils';
+import { useNavigate } from 'react-router-dom';
 import * as S from './Style';
 
 interface LinkBodyRowProps {
@@ -11,8 +12,16 @@ interface LinkBodyRowProps {
 const LinkBodyRow = ({ data }: LinkBodyRowProps) => {
   const expiresDate = getExpiresDate(data.expires_at);
   const fileSize = getSize(data.size);
+  const navigate = useNavigate();
+
+  const handleNavigate = (e: React.MouseEvent<HTMLTableRowElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.id === 'linkCopy') return;
+    navigate(`/${data.key}`, { state: data });
+  };
+
   return (
-    <S.TableRow>
+    <S.TableRow onClick={(e) => handleNavigate(e)}>
       <S.TableCell>
         <S.LinkInfo>
           <S.LinkImage>
@@ -28,6 +37,7 @@ const LinkBodyRow = ({ data }: LinkBodyRowProps) => {
               <span>만료됨</span>
             ) : (
               <S.UrlLink
+                id="linkCopy"
                 onClick={(e) => clipboardCopy(e)}
               >{`https://file-anywhere.herokuapp.com/${data.key}`}</S.UrlLink>
             )}
