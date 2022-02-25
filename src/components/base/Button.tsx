@@ -1,8 +1,8 @@
-import React from "react";
-import type { ButtonHTMLAttributes } from "react";
-import { forwardRef } from "react";
-import styled from "styled-components";
-import colors from "styles/colors";
+import React from 'react';
+import type { ButtonHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import styled from 'styled-components';
+import colors from 'styles/colors';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
@@ -10,7 +10,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, Props>(function Button(
   { fullWidth = false, children, ...rest },
-  forwardedRef
+  forwardedRef,
 ) {
   return (
     <Base ref={forwardedRef} fullWidth={fullWidth} {...rest}>
@@ -25,7 +25,7 @@ const Base = styled.button<{ fullWidth: boolean }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: 0 16px;
   height: 48px;
   border: 0 solid transparent;

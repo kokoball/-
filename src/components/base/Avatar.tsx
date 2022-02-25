@@ -1,7 +1,7 @@
-import React from "react";
-import type { HTMLAttributes } from "react";
-import styled from "styled-components";
-import colors from "styles/colors";
+import React from 'react';
+import type { HTMLAttributes } from 'react';
+import styled from 'styled-components';
+import colors from 'styles/colors';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   text: string;

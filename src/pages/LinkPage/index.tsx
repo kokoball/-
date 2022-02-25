@@ -1,8 +1,8 @@
-import React from "react";
-import type { FC } from "react";
-import Avatar from "components/Avatar";
-import styled from "styled-components";
-import colors from "styles/colors";
+import React from 'react';
+import type { FC } from 'react';
+import Avatar from 'components/base/Avatar';
+import styled from 'styled-components';
+import colors from 'styles/colors';
 
 const LinkPage: FC = () => {
   return (
@@ -23,11 +23,7 @@ const LinkPage: FC = () => {
             <TableCell>
               <LinkInfo>
                 <LinkImage>
-                  <img
-                    referrerPolicy="no-referrer"
-                    src="/svgs/default.svg"
-                    alt=""
-                  />
+                  <img referrerPolicy="no-referrer" src="/svgs/default.svg" alt="" />
                 </LinkImage>
                 <LinkTexts>
                   <LinkTitle>로고파일</LinkTitle>
@@ -59,11 +55,7 @@ const LinkPage: FC = () => {
             <TableCell>
               <LinkInfo>
                 <LinkImage>
-                  <img
-                    referrerPolicy="no-referrer"
-                    src="/svgs/default.svg"
-                    alt=""
-                  />
+                  <img referrerPolicy="no-referrer" src="/svgs/default.svg" alt="" />
                 </LinkImage>
                 <LinkTexts>
                   <LinkTitle>로고파일</LinkTitle>
@@ -95,11 +87,7 @@ const LinkPage: FC = () => {
             <TableCell>
               <LinkInfo>
                 <LinkImage>
-                  <img
-                    referrerPolicy="no-referrer"
-                    src="/svgs/default.svg"
-                    alt=""
-                  />
+                  <img referrerPolicy="no-referrer" src="/svgs/default.svg" alt="" />
                 </LinkImage>
                 <LinkTexts>
                   <LinkTitle>로고파일</LinkTitle>
