@@ -70,3 +70,11 @@ export const LinkReceivers = styled.div`
     margin-left: 8px;
   }
 `;
+
+export const UrlLink = styled.a`
+  text-decoration: none;
+
+  :hover {
+    color: ${colors.teal500};
+  }
+`;
