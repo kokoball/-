@@ -1,23 +1,7 @@
-import React from 'react';
-import type { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import colors from 'styles/colors';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  text: string;
-}
-
-const Avatar = ({ text, ...rest }: Props) => {
-  return (
-    <Base {...rest}>
-      <Text data-text={text}>{text.substring(0, 1)}</Text>
-    </Base>
-  );
-};
-
-export default Avatar;
-
-const Base = styled.div`
+export const Base = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -31,7 +15,7 @@ const Base = styled.div`
   line-height: 24px;
 `;
 
-const Text = styled.span`
+export const Text = styled.span`
   color: ${colors.white};
   background-color: ${colors.teal500};
   border-radius: 100%;

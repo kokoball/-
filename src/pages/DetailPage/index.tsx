@@ -1,10 +1,9 @@
 import React from 'react';
-import type { FC } from 'react';
 import styled from 'styled-components';
 import colors from 'styles/colors';
 import Button from 'components/base/Button';
 
-const DetailPage: FC = () => {
+const DetailPage = () => {
   return (
     <>
       <Header>

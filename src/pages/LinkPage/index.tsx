@@ -1,9 +1,8 @@
 import React from 'react';
 import type { FC } from 'react';
-import Avatar from 'components/base/Avatar';
 import styled from 'styled-components';
 import colors from 'styles/colors';
-import LinkTable from 'components/domain/LinkTable/LinkTable';
+import LinkTable from 'components/domain/LinkTable';
 import { IFilesTypes } from 'types';
 
 interface LinkPageProps {
@@ -14,11 +13,7 @@ const LinkPage: FC<LinkPageProps> = ({ filesData }) => {
   return (
     <>
       <Title>마이 링크</Title>
-      {filesData ? (
-        filesData.map((data) => <LinkTable key={data.key} data={data} />)
-      ) : (
-        <div>12</div>
-      )}
+      <LinkTable filesData={filesData} />
     </>
   );
 };

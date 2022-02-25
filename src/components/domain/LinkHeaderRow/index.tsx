@@ -1,8 +1,7 @@
 import React from 'react';
-import type { FC } from 'react';
 import * as S from './Style';
 
-const LinkHeaderRow: FC = () => {
+const LinkHeaderRow = () => {
   return (
     <>
       <S.TableRow>
