@@ -1,4 +1,5 @@
 import { HOURTIME, DAYTIME, DUMYNOWDATE } from 'constants/';
+import { IFilesTypes } from 'types';
 
 export const clipboardCopy = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault();
@@ -14,11 +15,12 @@ export const clipboardCopy = (e: React.MouseEvent<HTMLAnchorElement>) => {
   return;
 };
 
-export const divisionNum = (byte: number, num: number) => {
-  return (byte / 1000 ** num).toFixed(2);
+export const divisionNum = (byte: number | undefined, num: number) => {
+  if (byte !== undefined) return (byte / 1000 ** num).toFixed(2);
+  return;
 };
 
-export const getSize = (byte: number) => {
+export const getSize = (byte: number | undefined) => {
   const kb = divisionNum(byte, 1);
   const mb = divisionNum(byte, 2);
   const gb = divisionNum(byte, 3);
@@ -30,6 +32,15 @@ export const getSize = (byte: number) => {
   return `${byte}B`;
 };
 
+export const getTotalFilesSize = (detailsData: IFilesTypes | null) => {
+  if (detailsData !== null) {
+    const fileSizes = detailsData.files?.map((file) => file.size);
+    const totalFileSize = fileSizes?.reduce((prev, cur) => prev + cur, 0);
+    return getSize(totalFileSize);
+  }
+  return;
+};
+
 export const getExpiresDate = (date: number) => {
   // @NOTE: 임의로 날짜 변경
   // const expiresDate = new Date(date * 1000).getTime();
@@ -38,7 +49,6 @@ export const getExpiresDate = (date: number) => {
   const expiresDate = new Date((date + 2800000) * 1000).getTime();
   const nowDate = DUMYNOWDATE;
   const expiresLeft = expiresDate - nowDate;
-  console.log(expiresDate, nowDate, 123);
 
   const days = Math.floor(expiresLeft / DAYTIME);
   const hours = Math.floor((expiresLeft % DAYTIME) / HOURTIME)
@@ -47,12 +57,23 @@ export const getExpiresDate = (date: number) => {
   const minutes = Math.floor((expiresLeft % HOURTIME) / (1000 * 60))
     .toString()
     .padStart(2, '0');
-  console.log(days, 'days');
-  console.log(hours, 'hours');
-  console.log(minutes, 'minutes');
 
   if (days < 0) return 'expiration';
   if (days < 2) return `${hours}시간 ${minutes}분`;
   if (days > 2) return `${days}일`;
+  return;
+};
+
+export const handleCopy = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault();
+  const text = e.currentTarget.innerHTML;
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert(`${text}주소가 복사 되었습니다.`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   return;
 };
