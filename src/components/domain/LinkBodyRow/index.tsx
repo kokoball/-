@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from 'components/base/Abatar';
 import { IFilesTypes } from 'types';
-import { clipboardCopy, getExpiresDate, getSize } from 'utils';
+import { checkErrorImg, clipboardCopy, getExpiresDate, getSize } from 'utils';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Style';
 
@@ -25,10 +25,10 @@ const LinkBodyRow = ({ data }: LinkBodyRowProps) => {
       <S.TableCell>
         <S.LinkInfo>
           <S.LinkImage>
-            {data.thumbnailUrl.slice(-7) !== 'pdf.svg' ? (
-              <img referrerPolicy="no-referrer" src={data.thumbnailUrl} alt="" />
-            ) : (
+            {checkErrorImg(data) ? (
               <img referrerPolicy="no-referrer" src="/svgs/default.svg" alt="" />
+            ) : (
+              <img referrerPolicy="no-referrer" src={data.thumbnailUrl} alt="" />
             )}
           </S.LinkImage>
           <S.LinkTexts>

@@ -3,7 +3,7 @@ import DetailFileList from '../DetailFileList';
 import { DetailHeader } from '../DetailHeader';
 import { IFilesTypes } from 'types';
 import { useLocation, useParams } from 'react-router-dom';
-import { getTotalFilesSize, getExpiresDate } from 'utils';
+import { checkErrorImg, getTotalFilesSize, getExpiresDate } from 'utils';
 import { format } from 'date-fns';
 import * as S from './Style';
 
@@ -57,10 +57,10 @@ const DetailTable = ({ filesData }: DetailTableProps) => {
               <S.Bottom>{detailsData.download_count}</S.Bottom>
             </S.Texts>
             <S.LinkImage>
-              {detailsData.thumbnailUrl.slice(-7) !== 'pdf.svg' ? (
-                <S.Image src={detailsData.thumbnailUrl} />
-              ) : (
+              {checkErrorImg(detailsData) ? (
                 <S.Image src="/svgs/default.svg" />
+              ) : (
+                <S.Image src={detailsData.thumbnailUrl} />
               )}
             </S.LinkImage>
           </S.Descrition>

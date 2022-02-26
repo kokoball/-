@@ -1,5 +1,12 @@
 import { HOURTIME, DAYTIME, DUMYNOWDATE } from 'constants/';
-import { IFilesTypes } from 'types';
+import { IFilesTypes, FilesType } from 'types';
+
+export const checkErrorImg = (url: IFilesTypes | FilesType) => {
+  if (url.thumbnailUrl.slice(-7) === 'pdf.svg') return true;
+  if (url.thumbnailUrl.slice(-7) === 'gif.svg') return true;
+  if (url.thumbnailUrl.slice(-9) === 'image.svg') return true;
+  return false;
+};
 
 export const clipboardCopy = (e: React.MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault();
