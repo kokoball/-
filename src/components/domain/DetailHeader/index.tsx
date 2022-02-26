@@ -16,7 +16,7 @@ export const DetailHeader = ({ detailsData, expiresDate }: Props) => {
     <S.Header>
       <S.LinkInfo>
         <S.Title>{detailsData.summary}</S.Title>
-        {expiresDate === 'expired' ? (
+        {expiresDate === 'expiration' ? (
           <span>만료됨</span>
         ) : (
           <S.Url

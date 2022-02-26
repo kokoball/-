@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(API_ENDPOINT);
-      console.log(data);
       setFilesData(data);
     })();
   }, []);
