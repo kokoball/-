@@ -30,7 +30,7 @@ $ yarn start
 
 <br>
 
-## 🏗 특이사항
+## 🏗 프로젝트 설계 및 특이사항
 
 #### 1. thumbnailUrl 이미지
 - 주어진 API로(thumbnailUrl) 이미지 설정 시 403 오류가 발생하여 error 발생 시 기본 이미지 출력하도록 설정함
