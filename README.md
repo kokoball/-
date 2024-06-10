@@ -4,7 +4,8 @@
 
 ## 🚀 정보
 
-- [배포주소 바로가기](https://affectionate-darwin-4a7a11.netlify.app/)
+API 제공이 끝나 빈 페이지로 표시됩니다
+~~[배포주소 바로가기](https://affectionate-darwin-4a7a11.netlify.app/)~~
 
 <br>
 
